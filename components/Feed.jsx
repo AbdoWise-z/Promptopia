@@ -43,6 +43,7 @@ const Feed = () => {
             "filter": Target
           })
         });
+        console.log(res.ok);
         if (res.ok){
           const data = await res.json();
           setLoadedPrompts(data);

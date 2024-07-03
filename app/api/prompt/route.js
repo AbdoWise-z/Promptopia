@@ -28,12 +28,7 @@ export const POST = async (req , res) => {
           "$regex": filter,
           "$options": "i"
         }
-      }, {
-        "username": {
-          "$regex": filter,
-          "$options": "i"
-        }
-      }]
+      },]
     }).populate('creator');
     return new Response(JSON.stringify(prompts) , {status: 200});
 
