@@ -4,10 +4,11 @@ import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 
 import Form from "@components/Form";
 
-const EditPrompt = () => {
+const EditPromptInner = () => {
   const [Submitting, setSubmitting] = useState(false);
   const [Post, setPost] = useState(null);
 
@@ -73,4 +74,11 @@ const EditPrompt = () => {
   );
 }
 
+const EditPrompt = () => {
+  return (
+    <Suspense>
+      <EditPromptInner />
+    </Suspense>
+  )
+};
 export default EditPrompt;
